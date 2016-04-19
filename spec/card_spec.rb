@@ -11,7 +11,7 @@ describe "Card" do
       expect(card_ranks.include? card.rank).to be true
     end
 
-    it "has a suit" do
+    it "has a suit of S C H D" do
       expect(card_suits.include? card.suit).to be true
     end
 
