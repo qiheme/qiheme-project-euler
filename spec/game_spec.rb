@@ -35,6 +35,14 @@ describe "Game" do
         expect(game.is_straight?(royal_flush_diamonds)).to be true
         expect(game.is_straight?(not_royal_flush)).to be false
       end
+
+      it "has all cards of the same suit in order and highest rank" do
+        expect(game.is_royal_flush?(royal_flush_spades)).to be true
+        expect(game.is_royal_flush?(royal_flush_hearts)).to be true
+        expect(game.is_royal_flush?(royal_flush_clubs)).to be true
+        expect(game.is_royal_flush?(royal_flush_diamonds)).to be true
+        expect(game.is_royal_flush?(not_royal_flush)).to be false
+      end
     end
   end
 end

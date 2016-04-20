@@ -17,9 +17,8 @@ class Game
         hand.each {|card| i += 1 if card["#{suit}"] == suit  }
         flush = true if i == 5
       end
+      return flush
     end
-
-    return flush
   end
 
   def is_straight?(hand)
@@ -46,5 +45,26 @@ class Game
 
     straight = true if i - 1 == card_positions[-1]
     return straight
+  end
+
+  def is_royal_flush?(hand)
+    flush = is_flush?(hand)
+    straight = is_straight?(hand)
+    royal_flush = false
+    high_ranks = %w(A K Q J 10)
+
+    card_positions = hand.map do |card|
+      card_split = card.split('')
+      if card_split.length == 3
+        card_split[0] += card_split[1]
+        card_split.delete_at(1)
+      end
+      high_ranks.index(card_split.first)
+    end
+
+    card_positions = card_positions.reject(&:nil?).sort
+    royal_flush = true if card_positions == [0, 1, 2, 3, 4]
+
+    return royal_flush
   end
 end
