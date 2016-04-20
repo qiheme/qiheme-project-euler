@@ -17,6 +17,10 @@ describe "Card" do
 
     it "has a value with a combined rank and suit" do
       card_split = card.value.split('')
+      if card_split.length == 3
+        card_split[0] += card_split[1]
+        card_split.delete_at(1)
+      end
       expect(card_ranks.include? card_split[0]).to be true
       expect(card_suits.include? card_split[1]).to be true
     end
