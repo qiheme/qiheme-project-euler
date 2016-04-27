@@ -34,7 +34,7 @@ describe "Hand" do
       player_two.cards.each { |card| expect(deck.deck.include? card).to be false }
     end
 
-    it "should make sure the deck has 47 cards after dealing" do
+    it "should make sure the deck has 42 cards after dealing" do
       player_one
       player_two
       expect(deck.deck.length).to eq 42 
