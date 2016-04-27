@@ -63,7 +63,7 @@ class Game
     end
 
     card_positions = card_positions.reject(&:nil?).sort
-    royal_flush = true if card_positions == [0, 1, 2, 3, 4]
+    royal_flush = true if card_positions == [0, 1, 2, 3, 4] && flush && straight 
 
     return royal_flush
   end
